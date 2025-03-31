@@ -22,7 +22,7 @@ for dropout in "${dropout_values[@]}"; do
     echo -e "Epoch\tTrain Perplexity\tValidation Perplexity" > "$log_file"
 
     (cd $tools/pytorch-examples/word_language_model &&
-        CUDA_VISIBLE_DEVICES=$device OMP_NUM_THREADS=$num_threads python main.py --data $data/wikitext-2/cleaned \
+        CUDA_VISIBLE_DEVICES=$device OMP_NUM_THREADS=$num_threads python main.py --data $data/wikitext-2 \
             --epochs 40 \
             --log-interval 100 \
             --emsize 200 --nhid 200 --dropout $dropout --tied \
